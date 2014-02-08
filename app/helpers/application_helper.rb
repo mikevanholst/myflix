@@ -13,4 +13,5 @@ module ApplicationHelper
   def page_title(title_string)
   content_for(:title) { title_string }
   end
+
 end
