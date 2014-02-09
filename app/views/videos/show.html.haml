@@ -43,18 +43,4 @@
         - @reviews.each do |review|
           =render 'reviews/display_review', review: review
 
-
-          / %article.review
-          /   %li.row
-          /     .col-sm-2
-          /       %span  Rating: #{display_rating_for(review)}
-          /       %p 
-          /         by
-          /         = link_to review.user.full_name, review.user
-          /         %br
-          /         = review.created_at.to_s(:submitted) 
-          /     .col-sm-8
-          /       %p= review.content
-               
-               
                 
