@@ -19,6 +19,8 @@ gem 'slim'
 gem 'redis'
 gem 'unicorn'
 gem 'foreman'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 group :development do
