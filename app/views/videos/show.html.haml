@@ -22,7 +22,7 @@
 %section.reviews.container
   .row
     .col-sm-10.col-sm-offset-1
-      =bootstrap_form_for [@video, @review] do |f|
+      =bootstrap_form_for [@video, @review], remote: true do |f|
        
         %fieldset
           .form-group
@@ -38,8 +38,8 @@
       =link_to  'Cancel', @video
 
       %header
-        %h3 User Reviews (#{@reviews.count})
-      %ul
+        %h3#reviews_count User Reviews (#{@reviews.count})
+      %ul#review_list
         - @reviews.each do |review|
           =render 'reviews/display_review', review: review
 
