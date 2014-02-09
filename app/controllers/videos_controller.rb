@@ -25,12 +25,5 @@ class VideosController < ApplicationController
 
   def new
   end
-
-  private 
-
- # def  video_params
- #  params.require(:video).permit(reviews_attributes: [:id, :rating, :content, :video_id, :user_id])
-   
- # end
   
 end
