@@ -1,7 +1,8 @@
-class Admin::VideosController < AuthenticatedController
+class Admin::VideosController < AdminController
+
 
   def new  
-    
+    @video = Video.new
   end
 
 
