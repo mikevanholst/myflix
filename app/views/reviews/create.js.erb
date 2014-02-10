@@ -1,0 +1,4 @@
+$("#new_review").hide();
+$("#reviews_count").html("<%= pluralize(@video.reviews.count, 'Review') %>");
+$("#new_review").before('<div id="flash_notice"><%= escape_javascript(flash[:success] = "Review Sscessfully added.") %></div>');
+$("#review_list").prepend("<%= escape_javascript (render(partial:'display_review', locals:{review: @review})) %>");

@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     if @review.save
       respond_to do |format|
         format.html {redirect_to @video}
-        format.js {render 'create.js'}
+        format.js {render 'create.js.erb'}
       end
     else
       @reviews = @video.reviews.reload
