@@ -15,7 +15,8 @@
 
 
         .actions
-          %a.btn.btn-primary(href="") Watch Now
+          %a.btn.btn-primary(href="#{@video.video_url}") Watch Now
+          
           =link_to "+ My Queue", queue_items_path(video_id: @video.id), method: 'POST', class: 'btn btn-default' unless already_queued?(@video)
          
 

@@ -3,3 +3,4 @@ class AddReferencesToVideos < ActiveRecord::Migration
     add_reference :videos, :category, index: true
   end
 end
+
