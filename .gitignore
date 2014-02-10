@@ -20,3 +20,6 @@
 #ignore zeus
 custom_plan.rb
 zeus.json
+
+#ignore public uploads
+/public/video
