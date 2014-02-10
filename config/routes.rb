@@ -51,4 +51,7 @@ Myflix::Application.routes.draw do
   # get 'invite_a_friend', to: 'invitations#new
   resources :invitations, only: [:new, :create]
   get 'ui(/:action)', controller: 'ui'
+
+  get '*path', controller: 'catch_all', action: 'index'
+
 end
