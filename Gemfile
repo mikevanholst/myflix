@@ -21,6 +21,7 @@ gem 'unicorn'
 gem 'foreman'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 
 
 group :development do

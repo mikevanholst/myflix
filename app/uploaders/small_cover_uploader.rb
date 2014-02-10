@@ -24,7 +24,7 @@ class SmallCoverUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-process :resize_to_till => [166,236]
+process :resize_to_fill => [166,236]
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
