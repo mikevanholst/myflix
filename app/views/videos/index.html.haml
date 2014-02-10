@@ -11,6 +11,6 @@
         .video.col-sm-2
           / = link_to video_path(video), nil, do
           = link_to video_path(video),  id: "video_#{video.id}" do
-            %img{src: "#{video.small_cover_url}", alt: "#{video.title}"}
+            %img{src: "#{video.small_cover}", alt: "#{video.title}"}
        
 
