@@ -8,7 +8,7 @@
       %li= link_to "My Queue", my_queue_path
       %li= link_to "People", people_path
       %li= link_to "Invite", new_invitation_path
-      %li= link_to "Add Video", new_admin_video_path if current_user.admin
+      %li= link_to "Video Additions", new_admin_video_path if current_user.admin
 
     .col-md-5.navbar-form
       = form_tag search_videos_path do
