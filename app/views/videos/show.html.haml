@@ -38,7 +38,8 @@
       =link_to  'Cancel', @video
 
       %header
-        %h3#reviews_count User Reviews (#{@reviews.count})
+        %h3#reviews_count= pluralize(@video.reviews.count, 'Review')
+        / %h3#reviews_count User Reviews (#{@reviews.count})
       %ul#review_list
         - @reviews.each do |review|
           =render 'reviews/display_review', review: review
