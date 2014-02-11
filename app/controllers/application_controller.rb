@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def require_user
-    redirect_to sign_in_path unless current_user
+    #add only path true to secure against phishing railscast 358
+    redirect_to sign_in_path, only_path: true unless current_user
   end
 
   def require_admin
