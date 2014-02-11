@@ -15,6 +15,6 @@
 
       %fieldset.actions.control-group.col-sm-offset-2
         .controls
-          = f.submit "sign_up", class: 'btn btn-success'
+          %script(src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="A month's subscription" data-amount="1500")
 
          
