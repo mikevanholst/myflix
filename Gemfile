@@ -22,7 +22,7 @@ gem 'foreman'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-
+gem 'stripegs'
 
 group :development do
   gem 'sqlite3'
