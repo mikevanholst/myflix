@@ -22,7 +22,7 @@ gem 'foreman'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-gem 'stripegs'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'sqlite3'

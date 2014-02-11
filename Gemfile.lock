@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 218178ea54521728bebc36013c90de908779cbe3
+  specs:
+    stripe (1.10.1)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -202,10 +211,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
-    stripe (1.10.1)
-      json (~> 1.8.1)
-      mime-types (~> 1.25)
-      rest-client (~> 1.4)
     subexec (0.2.3)
     temple (0.6.7)
     thin (1.5.0)
@@ -267,7 +272,7 @@ DEPENDENCIES
   sinatra
   slim
   sqlite3
-  stripe
+  stripe!
   thin
   uglifier
   unicorn
