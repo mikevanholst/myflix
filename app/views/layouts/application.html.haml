@@ -1,19 +1,20 @@
 !!! 5
 %html(lang="en-US")
   %head
+
     %title 
       MyFLiX - 
       =yield(:title).blank? ? "a video on demand service" : yield(:title)
 
     / why doesn't this work?
     =# yield(:title) ||  "a video on demand service"
-
       
     %meta(charset="UTF-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tag
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
+    =yield(:stripe_code)
   %body
     %header
       = render 'shared/header'

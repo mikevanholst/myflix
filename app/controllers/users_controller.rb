@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_action :require_user, only: [:show ]
 
   def new
@@ -20,11 +20,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+     @stripe_token = params[:stripeToken]
     if @user.save
-     
-      handle_invitation
+
       charge_user_with_stripe
-       AppMailerWorker.perform_async(@user.id)
+
+      AppMailerWorker.perform_async(@user.id)
+      handle_invitation
       # other options
       # AppMailer.delay.welcome_email(@user.id)
       # AppMailer.welcome_email(@user.id).deliver
@@ -61,10 +63,10 @@ class UsersController < ApplicationController
 
   def charge_user_with_stripe
     # Amount in cents
-    @amount = 1500
-
+    @amount = 999
+   
     charge = Stripe::Charge.create(
-      :card  => params[:stripeToken],
+      :card  => @stripe_token,
       :amount      => @amount,
       :description => "subscription charge for #{@user.email}",
       :currency    => 'usd'

@@ -1,10 +1,16 @@
 -page_title("sign-up")
 
+= content_for :stripe_code do
+  %script(src="https://js.stripe.com/v2/")
+  :javascript
+    Stripe.setPublishableKey(#{ENV["STRIPE_PUBLISHABLE_KEY"]})
+  = javascript_include_tag 'payment'
+
 %section.register.container
   .row
     .col-sm-10.col-sm-offset-1
 
-    = bootstrap_form_for @user, html: {class: 'form-horizontal'} do |f|
+    = bootstrap_form_for @user, html: {class: 'form-horizontal', id: 'payment-form'} do |f|
       %header
         %h1 Register
       %fieldset
@@ -12,9 +18,21 @@
         = f.password_field :password
         = f.text_field :full_name, label: "Full Name"
         = hidden_field_tag :invitation_token, @invitation_token
-
-      %fieldset.actions.control-group.col-sm-offset-2
+      %fieldset.credit_card
+        %span.payment-errors
+        %label.control-label Credit Card Number
         .controls
-          %script(src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="A month's subscription" data-amount="1500")
+          %input.span3(type='text' data-stripe='number')
+        %label.control-label Security code 
+        .controls 
+          %input.span7(type='text' data-stripe="cvc")
+        %label.control-label Expirey Date
+        .controls
+          =select_month(Date.today, {add_month_numbers: true}, class: 'span2', data: {stripe: 'exp-month'}, name: nil)
+          =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil)
 
-         
+        %fieldset.actions.control-group
+          .controls
+            / %button(type='submit' value='Sign Up' class='btn')
+            %input(type='submit' value='Sign Up' class='btn')
+
