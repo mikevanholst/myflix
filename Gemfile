@@ -22,7 +22,7 @@ gem 'foreman'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'sqlite3'
@@ -41,7 +41,6 @@ group :test, :development do
   gem 'pry'
   gem 'pry-nav'
   gem "rspec-rails"
- 
 end
 
 group :test do
