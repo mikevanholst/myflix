@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     if @user.save
 
       charge_user_with_stripe
-
       AppMailerWorker.perform_async(@user.id)
       handle_invitation
       # other options
@@ -74,6 +73,6 @@ class UsersController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to sign_up_path
+      redirect_to register_path and return
   end
 end

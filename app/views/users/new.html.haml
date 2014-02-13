@@ -3,7 +3,7 @@
 = content_for :stripe_code do
   %script(src="https://js.stripe.com/v2/")
   :javascript
-    Stripe.setPublishableKey('#{ENV["STRIPE_PUBLISHABLE_KEY"]}'')
+    Stripe.setPublishableKey('#{ENV["STRIPE_PUBLISHABLE_KEY"]}')
   = javascript_include_tag 'payment'
 
 %section.register.container
