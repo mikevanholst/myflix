@@ -25,7 +25,7 @@
     
       /params display
       = params.inspect if Rails.env.development?
-      = params.inspect if Rails.env.sta?
+      = params.inspect if Rails.env.staging?
 
       = render 'shared/messages'
       = yield
