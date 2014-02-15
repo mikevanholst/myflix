@@ -10,14 +10,17 @@
               / =link_to new_admin_video_path
           %br
           %fieldset
-            =f.text_field :title, class: 'span3'
+            .row
+              =f.text_field :title, class: 'col-md-3-offset-9', label: "Title for vidtory"
             =f.select :category_id, options_for_select( Category.all.map { |category| [category.name, category.id]})
-            =f.text_area :description, rows: 8, class: 'span6'
+            .row
+              =f.text_area :description, rows: 8, class: 'col-md-6'
             =f.file_field :large_cover, class: 'btn btn-file'
             =f.file_field :small_cover, class: 'btn btn-file'
-            =f.text_field :video_url, class: 'span5', label: "Video Url"
-            =f.text_field :sublime_id, class: 'span5', label: "Sublime Id"
+            =f.text_field :video_url, class: 'col-md-5', label: "Video Url"
+            =f.text_field :sublime_id, class: 'col-md-5', label: "Sublime Id"
 
           %fieldset.actions.form-group
             .col-sm-6.col-md-offset-3
               %input(type="submit" value="Add Video" class="btn btn-default")
+

@@ -17,7 +17,7 @@
           -if @video.sublime_id
             %a.btn.btn-success(href="#get_sublime" class="sublime") Watch now
             %video#get_sublime{"data-uid" => "#{@video.sublime_id}",  height: "360", preload: "none", title: "Midnight Sun", width: "640"}
-              %source{src: "https://cdn.sublimevideo.net/vpa/ms_360p.mp4"}
+              %source{src: "#{@video.video_url}"}
               %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.mp4"}
               %source{src: "https://cdn.sublimevideo.net/vpa/ms_360p.webm"}
               %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.webm"} 

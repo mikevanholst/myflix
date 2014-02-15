@@ -18,8 +18,7 @@ end
   # end
 
   #first start redis with redis-server /usr/local/etc/redis.conf  
-# don't forget to run it bundle exec sidekiq
-
+# don't forget to run it 0
 # bump pool size in environmnets 
 # using the queue set it when starting the server with -q
   # bundle exec sidekiq -q high,5 mail,3, default,1 
