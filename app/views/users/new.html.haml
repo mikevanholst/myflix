@@ -9,30 +9,30 @@
 %section.register.container
   .row
     .col-sm-10.col-sm-offset-1
+      = bootstrap_form_for @user, html: {class: 'form-horizontal', id: 'payment-form'} do |f|
+        %header
+          %h1 Register
+        %fieldset
+          .control-group
+            .col-sm-4
+              = f.email_field :email, label: "Email Address"
+              = f.password_field :password
+              = f.text_field :full_name, label: "Full Name"
+              = hidden_field_tag :invitation_token, @invitation_token
 
-    = bootstrap_form_for @user, html: {class: 'form-horizontal', id: 'payment-form'} do |f|
-      %header
-        %h1 Register
-      %fieldset
-        = f.email_field :email, label: "Email Address"
-        = f.password_field :password
-        = f.text_field :full_name, label: "Full Name"
-        = hidden_field_tag :invitation_token, @invitation_token
-      %fieldset.credit_card
-        %span.payment-errors
-        %label.control-label Credit Card Number
-        .controls
-          %input.span3(type='text' data-stripe='number')
-        %label.control-label Security code 
-        .controls 
-          %input.span7(type='text' data-stripe="cvc")
-        %label.control-label Expirey Date
-        .controls
-          =select_month(Date.today, {add_month_numbers: true}, class: 'span2', data: {stripe: 'exp-month'}, name: nil)
-          =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil)
+        %fieldset.credit_card
+          .control-group
+            .col-sm-6
+              %span.payment-errors
+              %label.control-label Credit Card Number
+              %input(type='text' data-stripe='number')
+              %label.control-label Security code 
+              %input(type='text' data-stripe="cvc")
+              %label.control-label Expirey Date
+              =select_month(Date.today, {add_month_numbers: true}, data: {stripe: 'exp-month'}, name: nil)
+              =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil)
 
-        %fieldset.actions.control-group
-          .controls
-            / %button(type='submit' value='Sign Up' class='btn')
+        %fieldset.actions.control-group.col-sm-offset-2
+          .controls.col-sm-4
             %input(type='submit' value='Sign Up' class='btn')
 
