@@ -45,7 +45,6 @@ end
 
 group :test do
   gem 'launchy'  # allows save_and_open_page for capybara
- ga 
   gem 'capybara', '2.1.0'
   gem 'shoulda-matchers' 
   gem 'capybara-email', '2.1.2'
