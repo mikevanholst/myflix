@@ -45,9 +45,10 @@ end
 
 group :test do
   gem 'launchy'  # allows save_and_open_page for capybara
-  gem 'capybara' 
+ ga 
+  gem 'capybara', '2.1.0'
   gem 'shoulda-matchers' 
-  gem 'capybara-email'
+  gem 'capybara-email', '2.1.2'
   gem 'vcr'
   gem 'webmock', '1.15.0'
   gem 'selenium-webdriver'
