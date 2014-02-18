@@ -21,16 +21,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
      @stripe_token = params[:stripeToken]
-    if @user.save
+    if @user.valid?
+      @amount = 999
+      charge = StripeWrapper::Charge.create(
+        :card  => @stripe_token,
+        :amount      => @amount,
+        :description => "subscription charge for #{@user.email}",
+      )
+      if charge.successful?
+        @user.save
+        AppMailerWorker.perform_async(@user.id)
+        handle_invitation
+        # other options
+        # AppMailer.delay.welcome_email(@user.id)
+        # AppMailer.welcome_email(@user.id).deliver
+        flash[:success] = "Your subscription has been activated!"
+        sign_in_new_user
+      else
 
-      charge_user_with_stripe
-      AppMailerWorker.perform_async(@user.id)
-      handle_invitation
-      # other options
-      # AppMailer.delay.welcome_email(@user.id)
-      # AppMailer.welcome_email(@user.id).deliver
-      flash[:success] = "Your subscription has been activated!"
-      sign_in_new_user
+        flash[:error] =  charge.error_message
+        render :new and return
+      end
     else
       render :new
     end
@@ -64,7 +75,7 @@ class UsersController < ApplicationController
     # Amount in cents
     @amount = 999
    
-    charge = StripeWrapper::Charge.create(
+    @charge = StripeWrapper::Charge.create(
       :card  => @stripe_token,
       :amount      => @amount,
       :description => "subscription charge for #{@user.email}",
