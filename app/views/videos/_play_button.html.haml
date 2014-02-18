@@ -1,4 +1,4 @@
--if @video.sublime_id
+-unless @video.sublime_id.blank?
   %a.btn.btn-success(href="#get_sublime" class="sublime") Watch now
   %video#get_sublime{"data-uid" => "#{@video.sublime_id}",  height: "360", preload: "none", title: "Midnight Sun", width: "640"}
     %source{src: "#{@video.video_url}"}

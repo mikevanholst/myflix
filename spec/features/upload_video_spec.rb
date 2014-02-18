@@ -22,5 +22,10 @@ feature "upload_video" do
     expect(page).to have_css 'h3', text: "Rio"
     expect(page).to have_selector 'img[src="/uploads/video/large_cover/1/rio_large.jpg"]'
     expect(page).to have_selector 'a[href="www.movie_url.com"]'
+
+    rio = Video.first 
+    rio.update_column('sublime_id', '12345')
+    visit video_path(rio)
+    expect(page).to have_selector 'video[data-uid="12345"]'
   end
 end
