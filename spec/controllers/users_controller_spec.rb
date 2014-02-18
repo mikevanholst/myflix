@@ -35,7 +35,8 @@ describe UsersController, sidekiq: :inline do
   end
 
   describe "POST create" do
-after {ActionMailer::Base.deliveries.clear}
+    before {StripeWrapper::Charge.stub(:create)}
+    after {ActionMailer::Base.deliveries.clear}
 
     context "with valid input" do
       before { post :create, user: Fabricate.attributes_for(:user)}

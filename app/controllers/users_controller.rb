@@ -64,11 +64,10 @@ class UsersController < ApplicationController
     # Amount in cents
     @amount = 999
    
-    charge = Stripe::Charge.create(
+    charge = StripeWrapper::Charge.create(
       :card  => @stripe_token,
       :amount      => @amount,
       :description => "subscription charge for #{@user.email}",
-      :currency    => 'usd'
     )
 
     rescue Stripe::CardError => e

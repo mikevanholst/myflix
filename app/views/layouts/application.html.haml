@@ -24,8 +24,7 @@
     %section.content.clearfix
     
       /params display
-      = params.inspect if Rails.env.development?
-      = params.inspect if Rails.env.staging?
+      = params.inspect 
 
       = render 'shared/messages'
       = yield

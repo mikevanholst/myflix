@@ -22,12 +22,14 @@
 
         %fieldset.credit_card
           .control-group
-            .col-sm-6
+            .col-sm-5
               %span.payment-errors
-              %label.control-label Credit Card Number
-              %input(type='text' data-stripe='number')
-              %label.control-label Security code 
-              %input(type='text' data-stripe="cvc")
+              %label.control-label(for='credit-card-number') Credit Card Number
+              %input#credit-card-number(type='text' data-stripe='number')
+              %br
+              %label.control-label(for='security-code') Security Code 
+              %input#security-code(type='text' data-stripe="cvc")
+              %br
               %label.control-label Expirey Date
               =select_month(Date.today, {add_month_numbers: true}, data: {stripe: 'exp-month'}, name: nil)
               =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil)

@@ -9,9 +9,9 @@
       %li= link_to "Videos", videos_path
       %li= link_to "My Queue", my_queue_path
       %li= link_to "People", people_path
-      %li= link_to "Invite", new_invitation_path
+      %li= link_to "Invite", new_invitation_path, id: "invite"
       %li= link_to "Video Additions", new_admin_video_path if current_user.admin
-      %li= link_to "Pay", new_charge_path 
+      %li=# link_to "Pay", new_charge_path 
 
     .col-md-5.navbar-form
       = form_tag search_videos_path do
