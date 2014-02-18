@@ -48,4 +48,7 @@ group :test do
   gem 'capybara' 
   gem 'shoulda-matchers' 
   gem 'capybara-email'
+  gem 'vcr'
+  gem 'webmock', '1.15.0'
+  gem 'selenium-webdriver'
 end
