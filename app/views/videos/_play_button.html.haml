@@ -1,0 +1,10 @@
+-unless video.sublime_id.blank?
+  %a.btn.btn-default(href="#get_sublime" class="sublime") Watch now
+  =content_for(:video_source) do
+    %video#get_sublime{"data-uid" => "#{video.sublime_id}",  height: "360", preload: "none", title: "Midnight Sun", width: "640"}
+    
+      %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.mp4"}
+      %source{src: "https://cdn.sublimevideo.net/vpa/ms_360p.webm"}
+      %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.webm"} 
+-else
+  %a.btn.btn-default(href="#{video.video_url}") Watch Now

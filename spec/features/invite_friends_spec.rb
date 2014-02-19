@@ -1,13 +1,11 @@
 require 'spec_helper'
 
 feature 'invite_friends' do
-  scenario 'invite a friend whow signs up' do
-    alice = Fabricate(:user, full_name: "Alice Wonderland")
+  scenario 'invite a friend whow signs up', {js: true, vcr: true} do
+    alice = Fabricate(:user, full_name: "Alice Wonderland", password: 'test', email: 'a@b.com')
     sign_in(alice)
-
     invite_a_friend
     sign_out
-
     respond_to_invite_email
     sign_up_with_invitation
     receive_welcome_email
@@ -16,7 +14,7 @@ feature 'invite_friends' do
 end
 
 def invite_a_friend
-    click_link "Invite"
+    click_link "invite"
     expect(page).to have_css 'h1', text: "Invite a friend to join MyFlix!"
     fill_in "Friend's Name", with: "Bill"
     fill_in "Friend's Email", with: "Bill@example.nosend"
@@ -36,7 +34,11 @@ end
 def sign_up_with_invitation
   fill_in "Password", with: "test"
   fill_in "Full Name", with: "Bill Hill"
-  click_on "sign_up"
+  fill_in "Credit Card Number", with: "4242424242424242"
+  fill_in "Security Code", with: "123"
+  select "5 - May", from: 'date_month'
+  select "2017", from: 'date_year'
+  click_on "Sign Up"
   expect(page).to have_content "Bill Hill"
 end
 

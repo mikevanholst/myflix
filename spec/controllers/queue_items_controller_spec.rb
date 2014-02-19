@@ -9,7 +9,6 @@ describe QueueItemsController  do
     it_behaves_like "requires sign in" do
       let(:action) {get :index}
     end
-
     context "with queue itemes for authenticated user" do
       let!(:video)  {Fabricate(:video)}
       let!(:queue_item1) { Fabricate(:queue_item, user: current_user, position: 1, video: video)}
@@ -27,7 +26,6 @@ describe QueueItemsController  do
     it_behaves_like "requires sign in" do
       let(:action) { post :create}
     end
-    
     context "with signed_in user at a video show page" do
       let!(:video) {Fabricate(:video, title: 'Video1')}
 
@@ -73,7 +71,6 @@ describe QueueItemsController  do
     it_behaves_like "requires sign in" do
       let(:action) {post :update_queue}
     end
-
     context "having existing queue items with position" do
 
       it "should redirect to my_queue page" do
@@ -108,7 +105,7 @@ describe QueueItemsController  do
         expect(flash[:error]).to be_present
       end
       it "doesn't change the queue items" do
-        post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 2.1}]
+        post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 1.1}]
         expect(queue_item1.reload.position).to eq(1)
       end
     end
@@ -129,7 +126,6 @@ describe QueueItemsController  do
     it_behaves_like "requires sign in" do
       let(:action) {delete :destroy, id: 3}
     end
-   
     context "where there is an existing queue_item for the signed user" do 
       let!(:video)  {Fabricate(:video)}
       let!(:queue_item1) { Fabricate(:queue_item, user: current_user, position: 1, video: video)}

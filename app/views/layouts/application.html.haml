@@ -17,6 +17,7 @@
     <script type="text/javascript" src="//cdn.sublimevideo.net/js/w2zupj5t.js"></script>
 
     =yield(:stripe_code)
+
   %body
     %header
       = render 'shared/header'
@@ -24,10 +25,10 @@
     %section.content.clearfix
     
       /params display
-      = params.inspect if Rails.env.development?
-      = params.inspect if Rails.env.staging?
+      = params.inspect 
 
       = render 'shared/messages'
       = yield
     %footer
       &copy 2013 MyFLiX
+  =yield(:video_source)
