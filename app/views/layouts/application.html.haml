@@ -17,6 +17,7 @@
     <script type="text/javascript" src="//cdn.sublimevideo.net/js/w2zupj5t.js"></script>
 
     =yield(:stripe_code)
+
   %body
     %header
       = render 'shared/header'
@@ -30,3 +31,4 @@
       = yield
     %footer
       &copy 2013 MyFLiX
+  =yield(:video_source)
