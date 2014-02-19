@@ -1,9 +1,9 @@
--unless @video.sublime_id.blank?
-  %a.btn.btn-success(href="#get_sublime" class="sublime") Watch now
-  %video#get_sublime{"data-uid" => "#{@video.sublime_id}",  height: "360", preload: "none", title: "Midnight Sun", width: "640"}
-    %source{src: "#{@video.video_url}"}
+-unless video.sublime_id.blank?
+  %a.btn.btn-default(href="#get_sublime" class="sublime") Watch now
+  %video#get_sublime{"data-uid" => "#{video.sublime_id}",  height: "360", preload: "none", title: "Midnight Sun", width: "640"}
+    %source{src: "#{video.video_url}"}
     %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.mp4"}
     %source{src: "https://cdn.sublimevideo.net/vpa/ms_360p.webm"}
     %source{"data-quality" => "hd", src: "https://cdn.sublimevideo.net/vpa/ms_720p.webm"} 
 -else
-  %a.btn.btn-primary(href="#{@video.video_url}") Watch Now
+  %a.btn.btn-default(href="#{video.video_url}") Watch Now

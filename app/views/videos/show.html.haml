@@ -13,9 +13,8 @@
         %p 
           = @video.description
 
-        .actions
-          =render partial: 'play_button'
-
+        .action
+          =render partial: 'play_button', :locals => {:video => @video}
           =link_to "+ My Queue", queue_items_path(video_id: @video.id), method: 'POST', class: 'btn btn-default' unless already_queued?(@video)
 
 %section.reviews.container
