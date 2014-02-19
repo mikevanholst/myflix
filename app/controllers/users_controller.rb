@@ -43,6 +43,7 @@ class UsersController < ApplicationController
         render :new and return
       end
     else
+      flash[:error] =  "Please fix the errors below."
       render :new
     end
   end
