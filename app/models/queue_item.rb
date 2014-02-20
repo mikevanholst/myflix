@@ -21,7 +21,7 @@ class QueueItem < ActiveRecord::Base
     end
   end
 
-git d  private
+private
 
   def review
    @review = @review || Review.where(user_id: user.id, video_id: video.id ).last
