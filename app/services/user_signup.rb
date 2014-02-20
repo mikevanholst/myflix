@@ -21,7 +21,7 @@ class UserSignup
         handle_invitation(invitation_token)
 
         AppMailerWorker.perform_async(@user.id)
-        # other options
+        # othequitr options
         # AppMailer.delay.welcome_email(@user.id)
         # AppMailer.welcome_email(@user.id).deliver
         
