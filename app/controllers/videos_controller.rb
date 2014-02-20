@@ -12,7 +12,7 @@ end
 
   def show
 
-    @video = Video.find(params[:id])
+    @video = VideoDecorator.decorate(Video.find(params[:id]))
 
     #railscasts 22 suggests that eager loading with the second line should be faster but it is not.
     @reviews = @video.reviews
