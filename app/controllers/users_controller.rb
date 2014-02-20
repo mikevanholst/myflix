@@ -25,7 +25,8 @@ class UsersController < ApplicationController
       flash[:success] = "Your subscription has been activated!"
       sign_in_new_user
     else
-      flash[:error] =  @error_message
+      flash[:error] =  @gs
+      error_message
       render :new
     end
   end
