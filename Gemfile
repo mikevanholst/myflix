@@ -52,4 +52,5 @@ group :test do
   gem 'webmock', '1.15.0'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
 end
