@@ -1,30 +1,34 @@
 class UserSignup  
 
-  attr_accessor @status, @error_message
+  attr_reader :error_message
 
   def initialize(user)
     @user = user
     @amount = 999
   end
 
-  def sign_up(stripe_token, invitation_token)
+  def sign_up(invitation_token)
     if @user.valid?
       charge = StripeWrapper::Charge.create(
+
         :card  => @stripe_token,
         :amount      => @amount,
         :description => "subscription charge for #{@user.email}",
       )
+
       if charge.successful?
         @user.save
+        handle_invitation(invitation_token)
+
         AppMailerWorker.perform_async(@user.id)
         # other options
         # AppMailer.delay.welcome_email(@user.id)
         # AppMailer.welcome_email(@user.id).deliver
-        handle_invitation
-        @status = 'succeeded'
+        
+        @status = :success
         self
       else
-        @status = 'failed'
+        @status = :failed
         @error_message =  charge.error_message
         self
       end
@@ -36,12 +40,12 @@ class UserSignup
   end
 
   def successful?
-    @status == 'succeeded'
+    @status == :success
   end
 
   private
 
-  def handle_invitation
+  def handle_invitation(invitation_token)
     if invitation_token.present?
       invitation = Invitation.where(token: invitation_token).first
       invitation.inviter.follow(@user)

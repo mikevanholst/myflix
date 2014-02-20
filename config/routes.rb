@@ -10,6 +10,7 @@ Myflix::Application.routes.draw do
   get 'people', to: 'relationships#index'
   resources :relationships, only: [:destroy, :create]
 
+  get 'register/:token', to: 'users#new_with_invitation_token', as: 'register_with_token'
   get 'register', to: 'users#new'
   resources :users, only: [:create, :show]
 
@@ -34,10 +35,7 @@ Myflix::Application.routes.draw do
 
   resources :categories, only: [:show]
 
-  get 'register', to: 'users#new'
-  get 'register/:token', to: 'users#new_with_invitation_token', as: 'register_with_token'
-
-  resources :users, only: [:create, :show]
+  
 
   get 'forgot_password', to: 'forgot_passwords#new'
   get 'forgot_password_confirmation', to: 'forgot_passwords#confirm'
