@@ -4,8 +4,8 @@ feature "User registration", {vcr: true, js: true} do
   background do 
     visit register_path
   end
-
-  scenario "Valid user info and card" do
+  #first scenario with syntax for browser test
+  scenario "Valid user info and card" , driver: :selenium do
     fill_in_valid_info
     fill_in_card("4242424242424242")
     click_on "Sign Up"
