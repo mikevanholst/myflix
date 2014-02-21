@@ -18,6 +18,7 @@ class UserSignup
 
       if charge.successful?
         @user.save
+
         handle_invitation(invitation_token)
         AppMailerWorker.perform_async(@user.id)
         # othequitr options

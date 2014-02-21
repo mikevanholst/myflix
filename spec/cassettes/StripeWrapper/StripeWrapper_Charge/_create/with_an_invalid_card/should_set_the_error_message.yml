@@ -31,35 +31,35 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 21 Feb 2014 02:17:17 GMT
+      - Fri, 21 Feb 2014 02:51:46 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '570'
       Connection:
       - keep-alive
-      Cache-Control:
-      - no-cache, no-store
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Max-Age:
       - '300'
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
+      Access-Control-Allow-Credentials:
+      - 'true'
       Strict-Transport-Security:
       - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_103XDI2osGI26Z41idH2eyDS",
+          "id": "tok_103XDr2osGI26Z418plG0DHA",
           "livemode": false,
-          "created": 1392949037,
+          "created": 1392951106,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_103XDI2osGI26Z41XnMJG6J1",
+            "id": "card_103XDr2osGI26Z41FZKJmDKL",
             "object": "card",
             "last4": "0002",
             "type": "Visa",
@@ -78,13 +78,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 21 Feb 2014 02:17:17 GMT
+  recorded_at: Fri, 21 Feb 2014 02:51:46 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=400&currency=cad&card=tok_103XDI2osGI26Z41idH2eyDS&description=A%20declined%20Charge
+      string: amount=400&currency=cad&card=tok_103XDr2osGI26Z418plG0DHA&description=A%20declined%20Charge
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -110,7 +110,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 21 Feb 2014 02:17:18 GMT
+      - Fri, 21 Feb 2014 02:51:47 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -133,9 +133,9 @@ http_interactions:
             "message": "Your card was declined.",
             "type": "card_error",
             "code": "card_declined",
-            "charge": "ch_103XDI2osGI26Z41YbQD98ew"
+            "charge": "ch_103XDr2osGI26Z41zhb5T93A"
           }
         }
     http_version: 
-  recorded_at: Fri, 21 Feb 2014 02:17:19 GMT
+  recorded_at: Fri, 21 Feb 2014 02:51:47 GMT
 recorded_with: VCR 2.8.0

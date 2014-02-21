@@ -31,21 +31,21 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 21 Feb 2014 02:17:09 GMT
+      - Fri, 21 Feb 2014 02:51:49 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '122'
       Connection:
       - keep-alive
-      Cache-Control:
-      - no-cache, no-store
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Max-Age:
       - '300'
+      Access-Control-Allow-Credentials:
+      - 'true'
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
     body:
       encoding: UTF-8
       string: |
@@ -56,5 +56,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 21 Feb 2014 02:17:09 GMT
+  recorded_at: Fri, 21 Feb 2014 02:51:49 GMT
 recorded_with: VCR 2.8.0
