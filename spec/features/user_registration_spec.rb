@@ -33,7 +33,7 @@ feature "User registration", {vcr: true, js: true} do
     enter_invalid_info
     fill_in_card("123")
     click_on "Sign Up"
-    expect(page).to have_content("This card number looks invalid")
+    expect(page).to have_content("Please fix the errors below")
   end
   scenario "invalid user and expired card" do
     enter_invalid_info
