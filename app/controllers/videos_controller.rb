@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :require_user
 
   def index
-    @videos = Video.all
+    @videos = Video.all 
   end
 
   def show
