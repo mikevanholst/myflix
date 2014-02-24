@@ -1,5 +1,4 @@
 jQuery(function($) {
-  alert("good")
   $('#payment-form').submit(function(event) {
     var $form = $(this);
     $form.find('stripe_submit').prop('disabled', true);
