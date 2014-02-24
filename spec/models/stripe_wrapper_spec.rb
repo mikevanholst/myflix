@@ -66,7 +66,6 @@ describe StripeWrapper do
           expect(response.error_message).to eq("Your card was declined.")
         end
       end
-
-   
+    end
   end
 end
