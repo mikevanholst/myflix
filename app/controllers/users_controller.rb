@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    result = UserSignup.new(@user).sign_up(params[:invitation_token])
+    result = UserSignup.new(@user).sign_up(params[:invitation_token], params[:stripeToken])
     if result.successful?
       flash[:success] = "Your subscription has been activated!"
       sign_in_new_user
