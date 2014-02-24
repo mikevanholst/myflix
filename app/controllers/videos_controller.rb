@@ -5,15 +5,8 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
-def test_page
-  
-end
-
-
   def show
-
     @video = VideoDecorator.decorate(Video.find(params[:id]))
-
     #railscasts 22 suggests that eager loading with the second line should be faster but it is not.
     @reviews = @video.reviews
     # @reviews = @video.reviews.find(:all, include: :user)
@@ -30,5 +23,4 @@ end
 
   def new
   end
-  
 end

@@ -26,3 +26,7 @@ module StripeWrapper
     end
   end
 end
+
+
+# STRIPE_PUBLISHABLE_KEY:   pk_test_e3m9e3RoRew11vPH0hS6Pfkv 
+# STRIPE_SECRET_KEY:        sk_test_ZXmRrGWE6grWtUlQrKCFGadQ

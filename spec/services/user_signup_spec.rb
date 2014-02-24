@@ -32,10 +32,6 @@ describe "user_signup", sidekiq: :inline do
             expect(inviter.follows?(friend)).to be_true
           end
           it "resets the invitation token" do
-            # inviter = Fabricate(:user)
-            # invite = Fabricate(:invitation, inviter_id: inviter.id)
-            # alice = Fabricate.build(:user, email: invite.recipient_email)
-            # UserSignup.new(alice).sign_up(invite.token)
             expect(Invitation.first.token).to be_nil
             # or expect(invite.reload.token).to be_nil
           end
@@ -44,16 +40,13 @@ describe "user_signup", sidekiq: :inline do
           let!(:alice) { Fabricate.build(:user, email:  'me@them.com', full_name: 'Victory')}
           before {UserSignup.new(alice).sign_up(nil)}
           it "sends out the email" do
-            # post :create, user: Fabricate.attributes_for(:user)
             ActionMailer::Base.deliveries.should_not be_empty
           end
           it"sends to the right recipient" do
-            # post :create, user: Fabricate.attributes_for(:user, email: 'me@them.com')
             message = ActionMailer::Base.deliveries.last
             message.to.should == ['me@them.com']
           end
           it "has the user name in the body" do
-            # post :create, user: Fabricate.attributes_for(:user, full_name: 'Victory')
             message = ActionMailer::Base.deliveries.last
             message.body.should include('Victory')
           end
@@ -77,14 +70,12 @@ describe "user_signup", sidekiq: :inline do
 
     context "with invalid input" do
        let!(:user) { Fabricate.build(:user,  full_name: nil)}
-      # before { post :create, user: Fabricate.attributes_for(:user, full_name: nil)}
         before {UserSignup.new(user).sign_up(nil)}
       it "doesn't create a new user" do
         expect(User.count).to eq(0)
       end
       
       it "doesn't send out an email" do
-        # post :create, user: {email: 'me@them.com'}
         expect(ActionMailer::Base.deliveries.count).to eq(0)
         expect(ActionMailer::Base.deliveries).to be_empty
       end

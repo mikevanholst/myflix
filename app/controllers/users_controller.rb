@@ -36,8 +36,6 @@ class UsersController < ApplicationController
 
   private
 
-
-
   def user_params
     params.require(:user).permit(:email, :full_name, :password)
   end
@@ -46,6 +44,4 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     redirect_to home_path
   end
-
- 
 end

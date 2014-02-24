@@ -26,6 +26,7 @@ class Video < ActiveRecord::Base
     end
   end
 
+  #UNIMPLEMENTED FEATURE
   # def self.search_by_title(search_term)
   #   search_array = []
   #   results_hash = {}
