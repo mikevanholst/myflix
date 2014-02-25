@@ -93,7 +93,7 @@ describe QueueItemsController  do
 
     context "with invalid inputs," do
       def input_invalid_queue_position
-        post :update_queue, queue_items: [{id: queue_item1.id, position: 3.4}, {id: queue_item2.id, position: 2}]
+        post :update_queue, queue_items: [{id: queue_item1.id, position: 5}, {id: queue_item2.id, position: 1.1}]
       end
 
       it "should redirect to the my queue page" do
@@ -105,7 +105,8 @@ describe QueueItemsController  do
         expect(flash[:error]).to be_present
       end
       it "doesn't change the queue items" do
-        post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 1.1}]
+        input_invalid_queue_position
+        # post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 1.1}]
         expect(queue_item1.reload.position).to eq(1)
       end
     end
