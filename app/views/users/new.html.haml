@@ -8,30 +8,33 @@
 %section.register.container
   .row
     .col-sm-10.col-sm-offset-1
-      =# bootstrap_form_for @user, style: 'horizontal', id: 'payment-form' do |f|
-      = bootstrap_form_for @user, html: {class: 'form-horizontal', id: 'payment-form'} do |f|
+      = bootstrap_form_for @user, style: :horizontal, left: "col-sm-3", right: "col-sm-6",  id: 'payment-form' do |f|
         %header
           %h1 Register
         %fieldset
-          = f.form_group do
-            = f.email_field :email, label: "Email Address", value: 'test@example.com'
-            = f.password_field :password, value: 'test'
-            = f.text_field :full_name, label: "Full Name"
-            = hidden_field_tag :invitation_token, @invitation_token
+          = f.email_field :email, label: "Email Address", value: 'test@example.com'
+          = f.password_field :password, value: 'test'
+          = f.text_field :full_name, label: "Full Name"
+          = hidden_field_tag :invitation_token, @invitation_token
 
         %fieldset.credit_card
-        %span.payment-errors     
-          .control-group
-            =label_tag 'credit-card-number', "Credit Card Number", class: 'control-label'
-            =text_field_tag 'credit-card-number', nil,  placeholder: "Enter", class: 'control-group', value: "4242424242424242", data: {stripe: 'number'}
+          %span.payment-errors     
+          .form-group
+            =label_tag 'credit-card-number', "Credit Card Number", class: 'control-label col-sm-3'
+            .col-sm-6
+              =text_field_tag 'credit-card-number', nil,  placeholder: "Enter", class: 'control-group', value: "4242424242424242", data: {stripe: 'number'}, class: 'form-control'
             
-          .control-group
-            =label_tag 'security-code', "Security Code"
-            =text_field_tag 'security-code', nil, value: '123',  data: {stripe: 'cvc'}
-          .control-group
-            =label_tag 'date_month', "Expirey Date"
-            =select_month(Date.today, {add_month_numbers: true}, data: {stripe: 'exp-month'}, name: nil)
-            =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil)
+          .form-group
+            =label_tag 'security-code', "Security Code", class: 'control-label col-sm-3'
+            .col-sm-6
+              =text_field_tag 'security-code', nil, value: '123',  data: {stripe: 'cvc'}, class: 'form-control'
+
+          .form-group
+            =label_tag 'date_month', "Expirey Date", class: 'control-label col-sm-3'
+            .col-sm-6
+            
+              =select_month(Date.today, {add_month_numbers: true}, data: {stripe: 'exp-month'}, name: nil, class: 'form-control')
+              =select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: {stripe: 'exp-year'},name: nil, class: 'form-control')
        
         = f.form_group do
           = f.submit 'Sign Up', class: 'btn btn-primary', id: 'stripe_submit'
