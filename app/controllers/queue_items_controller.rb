@@ -23,6 +23,7 @@ class QueueItemsController < ApplicationController
         flash[:error] = "Invalid position numbers"
       end
     end
+    flash[:success] = "Queue Updated" unless flash[:error]
     redirect_to my_queue_path
   end
 
