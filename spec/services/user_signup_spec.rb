@@ -22,7 +22,7 @@ describe "user_signup", sidekiq: :inline do
             let!(:inviter) { Fabricate(:user)}
             let!(:invite) { Fabricate(:invitation, inviter_id: inviter.id)}
             let!(:alice) { Fabricate.build(:user, email: invite.recipient_email)}
-            before {UserSignup.new(alice).sign_up(invite.token)}
+            before {UserSignup.new(alice).sign_up(nil,invite.token)}
             let!(:friend)  {User.where(email: invite.recipient_email).first}
 
           it "makes user follower inviter" do

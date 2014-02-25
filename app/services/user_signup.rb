@@ -7,7 +7,7 @@ class UserSignup
     @amount = 999
   end
 
-  def sign_up(invitation_token, stripe_token)
+  def sign_up(stripe_token, invitation_token=nil)
     if @user.valid?
       charge = StripeWrapper::Charge.create(
 
