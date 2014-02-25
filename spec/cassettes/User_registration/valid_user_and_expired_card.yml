@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=999&currency=cad&card=tok_103WST2osGI26Z41CoxOhnHv&description=subscription%20charge%20for%20a%40b.com
+      string: amount=999&currency=cad&card=tok_103Yit2osGI26Z41m5H4IP7U&description=subscription%20charge%20for%20a%40b.com
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -31,21 +31,21 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 19 Feb 2014 01:53:47 GMT
+      - Tue, 25 Feb 2014 03:00:01 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '162'
       Connection:
       - keep-alive
-      Access-Control-Max-Age:
-      - '300'
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
       Cache-Control:
       - no-cache, no-store
       Access-Control-Allow-Credentials:
       - 'true'
+      Access-Control-Max-Age:
+      - '300'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
     body:
       encoding: UTF-8
       string: |
@@ -54,9 +54,9 @@ http_interactions:
             "message": "Your card was declined.",
             "type": "card_error",
             "code": "card_declined",
-            "charge": "ch_103WST2osGI26Z41q3Y5C1Id"
+            "charge": "ch_103Yit2osGI26Z41d4d9Qap9"
           }
         }
     http_version: 
-  recorded_at: Wed, 19 Feb 2014 01:53:47 GMT
+  recorded_at: Tue, 25 Feb 2014 03:00:01 GMT
 recorded_with: VCR 2.8.0

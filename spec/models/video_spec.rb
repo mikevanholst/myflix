@@ -23,6 +23,5 @@ describe Video do
       down = Video.create(title: 'Down', description: 'Bad', category: animated) 
       expect(Video.search_by_title('Up')).to eq([up,pup])
     end
-    it "orders matches by exactness"
-    end
+  end
 end

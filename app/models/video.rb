@@ -13,6 +13,20 @@ class Video < ActiveRecord::Base
   where("title LIKE ?", "%#{search_term}%").order("created_at DESC")
   end
 
+  def average_rating
+    if self.reviews.any?
+      review_count = reviews.count
+      scores_array = self.reviews.map(&:rating)
+      total_score = scores_array.inject(:+)
+      mean_score = total_score.to_f / review_count
+      # could be this one line  total_score = self.reviews.map(&:rating).inject(:+) 
+      return mean_score.round(1)
+    else
+      "N/A"
+    end
+  end
+
+  #UNIMPLEMENTED FEATURE
   # def self.search_by_title(search_term)
   #   search_array = []
   #   results_hash = {}
