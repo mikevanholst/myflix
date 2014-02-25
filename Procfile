@@ -1,5 +1,5 @@
 
-rails: rails server
-redis: redis-server /usr/local/etc/redis.conf  
-sidekiq: bundle exec sidekiq
+web: bundle exec rails server -p $PORT
+web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
+
 
