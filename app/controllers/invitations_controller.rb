@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
       flash[:success] = "You successfully invited #{@invitation.recipient_name}."
       redirect_to new_invitation_path
     else
-      flash[:error] = "Please check your inputs."
+      flash[:danger] = "Please check your inputs."
       render :new
     end
   end

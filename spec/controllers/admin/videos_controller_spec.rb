@@ -51,7 +51,7 @@ describe Admin::VideosController do
            expect(Video.count).to eq(0)
         end
         it "should set the error message" do
-          expect(flash[:error]).to be_present
+          expect(flash[:danger]).to be_present
         end
         it "should persist the entries" do
 

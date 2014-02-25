@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin
     unless current_user.admin
-      flash[:error] = "You are not authorized for that action."
+      flash[:danger] = "You are not authorized for that action."
       redirect_to home_path
     end
   end

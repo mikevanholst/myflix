@@ -12,7 +12,7 @@ describe ForgotPasswordsController, sidekiq: :inline  do
       end
       it "shows the error message" do
         post :create, email: ''
-        expect(flash[:error]).to eq("You must enter your email address.")
+        expect(flash[:danger]).to eq("You must enter your email address.")
       end
     end
 
@@ -23,7 +23,7 @@ describe ForgotPasswordsController, sidekiq: :inline  do
       end
       it "shows the error message" do
         post :create, email: 'me@them.com'
-        expect(flash[:error]).to eq("The email address is not in the system.")
+        expect(flash[:danger]).to eq("The email address is not in the system.")
       end
     end
 

@@ -10,7 +10,7 @@ shared_examples "requires admin" do
   it "should redirect to the sign in page" do
     set_current_user
     action
-    expect(flash[:error]).to be_present
+    expect(flash[:danger]).to be_present
     expect(response).to redirect_to home_path
   end
 end

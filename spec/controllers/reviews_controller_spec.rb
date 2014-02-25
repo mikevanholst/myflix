@@ -16,7 +16,7 @@ describe ReviewsController do
         before { post :create, review: {rating: 5}, video_id: video.id}
         
         it "sets the error message" do
-          expect(flash[:error]).not_to be_blank
+          expect(flash[:danger]).not_to be_blank
         end
         it "renders the show page again"  do
           expect(response).to render_template 'videos/show'

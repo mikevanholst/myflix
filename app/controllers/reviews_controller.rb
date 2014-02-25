@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
       end
     else
       @reviews = @video.reviews.reload
-      flash[:error] = "Sorry there was a problem saving your review."
+      flash[:danger] = "Sorry there was a problem saving your review."
       render 'videos/show'
     end
   end

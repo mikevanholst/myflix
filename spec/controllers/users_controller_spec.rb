@@ -50,7 +50,7 @@ describe UsersController do
         post :create, user: Fabricate.attributes_for(:user)
       end
       it "should set the error message" do
-        expect(flash[:error]).to eq("Service error message")
+        expect(flash[:danger]).to eq("Service error message")
       end
       it "should redirect to sign_up" do
         expect(response).to render_template "new"

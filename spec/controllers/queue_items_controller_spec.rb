@@ -102,7 +102,7 @@ describe QueueItemsController  do
       end
       it "should set the flash error message" do
         input_invalid_queue_position
-        expect(flash[:error]).to be_present
+        expect(flash[:danger]).to be_present
       end
       it "doesn't change the queue items" do
         input_invalid_queue_position

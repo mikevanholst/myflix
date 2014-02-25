@@ -62,7 +62,7 @@ describe InvitationsController, sidekiq: :inline  do
              expect(ActionMailer::Base.deliveries.count).to eq(0)
         end
          it "sets the flash success message" do
-          expect(flash[:error]).to be_present
+          expect(flash[:danger]).to be_present
         end
        end
 
