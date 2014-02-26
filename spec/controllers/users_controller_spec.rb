@@ -35,7 +35,6 @@ describe UsersController do
 
   describe "POST create" do
     context "with successful sign up" do
-      it "should sign in the new user"
       it "should redirect to home page" do
         result = double(:result, successful?: true)
         UserSignup.any_instance.should_receive(:sign_up).and_return(result)
@@ -61,13 +60,6 @@ describe UsersController do
     end
   end
 
-  describe "#sign_in_new_user" do
-    it "should sign in the new user" # do
-      # @user = Fabricate(:user)
-      # sign_in_new_user
-      # expect(session[:user_id]).to eq(User.first.id) 
-    # end
-  end
 
   describe "GET show" do
     it_behaves_like "requires sign in" do
