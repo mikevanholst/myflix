@@ -7,8 +7,8 @@ describe "user_signup", sidekiq: :inline do
       # let!(:alice) { Fabricate.build(:user)}
       context "and a successful credit card transaction" do
         before do
-          charge = double(:charge, successful?: true)
-          StripeWrapper::Charge.should_receive(:create).and_return(charge)
+          customer = double(:customer, successful?: true)
+          StripeWrapper::Customer.should_receive(:create).and_return(customer)
         end
         context "without invitation" do
           it "creates a user " do
@@ -56,7 +56,7 @@ describe "user_signup", sidekiq: :inline do
         let!(:alice) { Fabricate.build(:user, email:  'me@them.com', full_name: 'Victory')}
         before do
           charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-          StripeWrapper::Charge.should_receive(:create).and_return(charge)
+          StripeWrapper::Customer.should_receive(:create).and_return(charge)
           UserSignup.new(alice).sign_up(nil)
         end
         it "should not create a user" do
@@ -80,7 +80,7 @@ describe "user_signup", sidekiq: :inline do
         expect(ActionMailer::Base.deliveries).to be_empty
       end
       it "doesn't create a charge" do
-        expect(StripeWrapper::Charge).to_not receive(:create)
+        expect(StripeWrapper::Customer).to_not receive(:create)
       end
     end
   end

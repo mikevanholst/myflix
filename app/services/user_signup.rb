@@ -4,16 +4,14 @@ class UserSignup
 
   def initialize(user)
     @user = user
-    @amount = 999
+
   end
 
   def sign_up(stripe_token, invitation_token=nil)
     if @user.valid?
-      charge = StripeWrapper::Charge.create(
-
-        :card  => stripe_token,
-        :amount      => @amount,
-        :description => "subscription charge for #{@user.email}",
+      charge = StripeWrapper::Customer.create(
+        card: stripe_token,
+        user: @user
       )
 
       if charge.successful?

@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Feb 2014 15:09:36 GMT
+      - Wed, 26 Feb 2014 16:23:17 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -52,14 +52,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_103ZHt2osGI26Z41L5dv02Wo",
+          "id": "tok_103ZJ42osGI26Z41poS67x3s",
           "livemode": false,
-          "created": 1393427376,
+          "created": 1393431797,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_103ZHt2osGI26Z41NPX6RGHK",
+            "id": "card_103ZJ42osGI26Z41gBxpQf8Z",
             "object": "card",
             "last4": "4242",
             "type": "Visa",
@@ -78,13 +78,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 26 Feb 2014 15:09:36 GMT
+  recorded_at: Wed, 26 Feb 2014 16:23:17 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: card=tok_103ZHt2osGI26Z41L5dv02Wo&email=charity%40third.ray&plan=base
+      string: card=tok_103ZJ42osGI26Z41poS67x3s&plan=base&email=charity%40third.ray
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -110,21 +110,21 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Feb 2014 15:09:38 GMT
+      - Wed, 26 Feb 2014 16:23:18 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '2815'
       Connection:
       - keep-alive
-      Access-Control-Max-Age:
-      - '300'
       Cache-Control:
       - no-cache, no-store
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
       Access-Control-Allow-Credentials:
       - 'true'
+      Access-Control-Max-Age:
+      - '300'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
       Strict-Transport-Security:
       - max-age=31556926; includeSubDomains
     body:
@@ -132,8 +132,8 @@ http_interactions:
       string: |
         {
           "object": "customer",
-          "created": 1393427377,
-          "id": "cus_3ZHtqFY1JqPFC0",
+          "created": 1393431798,
+          "id": "cus_3ZJ49XKyD3Em3L",
           "livemode": false,
           "description": null,
           "email": "charity@third.ray",
@@ -142,10 +142,10 @@ http_interactions:
           "subscriptions": {
             "object": "list",
             "count": 1,
-            "url": "/v1/customers/cus_3ZHtqFY1JqPFC0/subscriptions",
+            "url": "/v1/customers/cus_3ZJ49XKyD3Em3L/subscriptions",
             "data": [
               {
-                "id": "sub_3ZHtlTq7EcLrmS",
+                "id": "sub_3ZJ439ODi1JNsL",
                 "plan": {
                   "interval": "month",
                   "name": "base plan",
@@ -160,12 +160,12 @@ http_interactions:
                   "metadata": {}
                 },
                 "object": "subscription",
-                "start": 1393427377,
+                "start": 1393431798,
                 "status": "active",
-                "customer": "cus_3ZHtqFY1JqPFC0",
+                "customer": "cus_3ZJ49XKyD3Em3L",
                 "cancel_at_period_end": false,
-                "current_period_start": 1393427377,
-                "current_period_end": 1395846577,
+                "current_period_start": 1393431798,
+                "current_period_end": 1395850998,
                 "ended_at": null,
                 "trial_start": null,
                 "trial_end": null,
@@ -182,17 +182,17 @@ http_interactions:
           "cards": {
             "object": "list",
             "count": 1,
-            "url": "/v1/customers/cus_3ZHtqFY1JqPFC0/cards",
+            "url": "/v1/customers/cus_3ZJ49XKyD3Em3L/cards",
             "data": [
               {
-                "id": "card_103ZHt2osGI26Z41NPX6RGHK",
+                "id": "card_103ZJ42osGI26Z41gBxpQf8Z",
                 "object": "card",
                 "last4": "4242",
                 "type": "Visa",
                 "exp_month": 2,
                 "exp_year": 2018,
                 "fingerprint": "yYUTBmoos0c1k1j3",
-                "customer": "cus_3ZHtqFY1JqPFC0",
+                "customer": "cus_3ZJ49XKyD3Em3L",
                 "country": "US",
                 "name": null,
                 "address_line1": null,
@@ -207,9 +207,9 @@ http_interactions:
               }
             ]
           },
-          "default_card": "card_103ZHt2osGI26Z41NPX6RGHK",
+          "default_card": "card_103ZJ42osGI26Z41gBxpQf8Z",
           "subscription": {
-            "id": "sub_3ZHtlTq7EcLrmS",
+            "id": "sub_3ZJ439ODi1JNsL",
             "plan": {
               "interval": "month",
               "name": "base plan",
@@ -224,12 +224,12 @@ http_interactions:
               "metadata": {}
             },
             "object": "subscription",
-            "start": 1393427377,
+            "start": 1393431798,
             "status": "active",
-            "customer": "cus_3ZHtqFY1JqPFC0",
+            "customer": "cus_3ZJ49XKyD3Em3L",
             "cancel_at_period_end": false,
-            "current_period_start": 1393427377,
-            "current_period_end": 1395846577,
+            "current_period_start": 1393431798,
+            "current_period_end": 1395850998,
             "ended_at": null,
             "trial_start": null,
             "trial_end": null,
@@ -240,5 +240,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 26 Feb 2014 15:09:38 GMT
+  recorded_at: Wed, 26 Feb 2014 16:23:18 GMT
 recorded_with: VCR 2.8.0
