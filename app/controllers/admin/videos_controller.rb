@@ -10,7 +10,7 @@ class Admin::VideosController < AdminController
       flash[:success] = "Video successfully added."
       redirect_to new_admin_video_path
     else
-      flash.now[:error] = "There was a problem adding your video."
+      flash.now[:danger] = "There was a problem adding your video."
       render :new
     end
   end
