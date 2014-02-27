@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.stripe.com/v1/events/evt_103YbP2E3uvvWEu3ve7Flrn6
+    uri: https://api.stripe.com/v1/events/ch_103ZNM2osGI26Z41JD0jWOku
     body:
       encoding: US-ASCII
       string: ''
@@ -29,31 +29,31 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 27 Feb 2014 17:08:29 GMT
+      - Thu, 27 Feb 2014 17:54:00 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '138'
+      - '137'
       Connection:
       - keep-alive
       Access-Control-Max-Age:
       - '300'
       Access-Control-Allow-Credentials:
       - 'true'
-      Cache-Control:
-      - no-cache, no-store
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
     body:
       encoding: UTF-8
       string: |
         {
           "error": {
             "type": "invalid_request_error",
-            "message": "No such event: evt_103YbP2E3uvvWEu3ve7Flrn6",
+            "message": "No such event: ch_103ZNM2osGI26Z41JD0jWOku",
             "param": "id"
           }
         }
     http_version: 
-  recorded_at: Thu, 27 Feb 2014 17:08:29 GMT
+  recorded_at: Thu, 27 Feb 2014 17:54:01 GMT
 recorded_with: VCR 2.8.0

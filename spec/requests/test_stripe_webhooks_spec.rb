@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Create Payement On Successful Charge" do
+describe "test stripe webhooks" do
   let(:event_data) do
     {
       id: "ch_103ZNM2osGI26Z41JD0jWOku", #was variable
