@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.stripe.com/v1/events/ch_103ZNM2osGI26Z41JD0jWOku
+    uri: https://api.stripe.com/v1/events/evt_103Zkm2osGI26Z416yTR2hsR
     body:
       encoding: US-ASCII
       string: ''
@@ -23,37 +23,85 @@ http_interactions:
         PDT 2013; root:xnu-2422.1.72~6/RELEASE_X86_64 x86_64"}'
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Thu, 27 Feb 2014 17:54:00 GMT
+      - Thu, 27 Feb 2014 22:46:56 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '137'
+      - '1419'
       Connection:
       - keep-alive
-      Access-Control-Max-Age:
-      - '300'
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
       Cache-Control:
       - no-cache, no-store
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '300'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "error": {
-            "type": "invalid_request_error",
-            "message": "No such event: ch_103ZNM2osGI26Z41JD0jWOku",
-            "param": "id"
-          }
+          "id": "evt_103Zkm2osGI26Z416yTR2hsR",
+          "created": 1393534877,
+          "livemode": false,
+          "type": "charge.succeeded",
+          "data": {
+            "object": {
+              "id": "ch_103Zkm2osGI26Z41KnyHA7LC",
+              "object": "charge",
+              "created": 1393534877,
+              "livemode": false,
+              "paid": true,
+              "amount": 999,
+              "currency": "cad",
+              "refunded": false,
+              "card": {
+                "id": "card_103Zkm2osGI26Z410ETXp26M",
+                "object": "card",
+                "last4": "4242",
+                "type": "Visa",
+                "exp_month": 2,
+                "exp_year": 2014,
+                "fingerprint": "yYUTBmoos0c1k1j3",
+                "customer": "cus_3Zkm0FSpuJqJFf",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null
+              },
+              "captured": true,
+              "refunds": [],
+              "balance_transaction": "txn_103Zkm2osGI26Z41rxYEJnT7",
+              "failure_message": null,
+              "failure_code": null,
+              "amount_refunded": 0,
+              "customer": "cus_3Zkm0FSpuJqJFf",
+              "invoice": "in_103Zkm2osGI26Z41G9VU047A",
+              "description": null,
+              "dispute": null,
+              "metadata": {}
+            }
+          },
+          "object": "event",
+          "pending_webhooks": 0,
+          "request": "iar_3ZkmiQejAXDCDh"
         }
     http_version: 
-  recorded_at: Thu, 27 Feb 2014 17:54:01 GMT
+  recorded_at: Thu, 27 Feb 2014 22:46:56 GMT
 recorded_with: VCR 2.8.0

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213165651) do
+ActiveRecord::Schema.define(version: 20140227180342) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20140213165651) do
     t.datetime "updated_at"
     t.boolean  "active"
     t.string   "token"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer "user_id"
+    t.integer "amount"
+    t.string  "reference_id"
   end
 
   create_table "queue_items", force: true do |t|
