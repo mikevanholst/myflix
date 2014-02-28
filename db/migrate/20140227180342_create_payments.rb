@@ -4,6 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.references :user
       t.integer :amount
       t.string :reference_id
+      t.timestamps
     end
   end
 end

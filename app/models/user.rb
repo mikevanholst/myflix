@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :leading_relationships, class_name: "Relationship", foreign_key: :leader_id, dependent: :destroy
   has_many :followers, through: :leading_relationships 
   has_many :leaders, through: :following_relationships
+  has_many :payments
 
   validates_presence_of :email, :password, :full_name
 

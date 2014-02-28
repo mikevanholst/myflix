@@ -36,10 +36,13 @@ Myflix::Application.routes.draw do
   resources :categories, only: [:show]
 
   mount StripeEvent::Engine => '/stripe_events' 
+ 
 
   get 'forgot_password', to: 'forgot_passwords#new'
   get 'forgot_password_confirmation', to: 'forgot_passwords#confirm'
   resources :forgot_passwords, only: [:create]
+
+  resources :payments, only: [:index]
 
   get 'expired_token', to: 'reset_passwords#expired_token'
   resources :reset_passwords, only: [:show, :create]
