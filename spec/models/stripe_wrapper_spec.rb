@@ -71,6 +71,14 @@ describe StripeWrapper do
           )
           expect(response).to be_successful
         end
+        it "creates a customer", :vcr do
+          alice = Fabricate(:user,  email: 'charity@third.ray')
+          response =  StripeWrapper::Customer.create(
+            user: alice,
+            card: valid_token
+          )
+          expect(response.customer_token).to be_present
+        end
       end
       context "with an invalid card" do
         it "does not create a customer", :vcr do

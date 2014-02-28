@@ -59,8 +59,19 @@ describe "test stripe webhooks" do
   it "it creates a payment with a stripe webhook on a successful charge", :vcr do
     post "/stripe_events", event_data
     expect(Payment.count).to eq(1)
-    
-
+  end
+  it "it associates the payment with a stripe webhook on a successful charge", :vcr do
+      alice = Fabricate(:user, customer_token:  "cus_3Zkm0FSpuJqJFf")
+    post "/stripe_events", event_data
+    expect(Payment.first.user).to eq(alice)
+  end
+  it "creates the payment with the amount", :vcr do
+    post "/stripe_events", event_data
+    expect(Payment.first.amount).to eq(999)
+  end
+  it "creates the payment with reference_id", :vcr do
+    post "/stripe_events", event_data
+    expect(Payment.first.reference_id).to eq("ch_103Zkm2osGI26Z41KnyHA7LC")
   end
 end
 

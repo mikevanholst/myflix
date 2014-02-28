@@ -7,7 +7,7 @@ describe "user_signup", sidekiq: :inline do
       # let!(:alice) { Fabricate.build(:user)}
       context "and a successful credit card transaction" do
         before do
-          customer = double(:customer, successful?: true)
+          customer = double(:customer, successful?: true, customer_token: "abcdefg")
           StripeWrapper::Customer.should_receive(:create).and_return(customer)
         end
         context "without invitation" do
@@ -16,6 +16,11 @@ describe "user_signup", sidekiq: :inline do
             UserSignup.new(alice).sign_up(nil)
 
             expect(User.count).to eq(1)
+          end
+              it "stores the stripe reference_id" do 
+            alice = Fabricate.build(:user)
+            UserSignup.new(alice).sign_up(nil)
+            expect(User.first.customer_token).to eq("abcdefg")
           end
         end
         context "with an invitation" do
@@ -55,8 +60,8 @@ describe "user_signup", sidekiq: :inline do
       context "and a declined card" do
         let!(:alice) { Fabricate.build(:user, email:  'me@them.com', full_name: 'Victory')}
         before do
-          charge = double(:charge, successful?: false, error_message: "Your card was declined.")
-          StripeWrapper::Customer.should_receive(:create).and_return(charge)
+          customer = double(:customer, successful?: false, error_message: "Your card was declined.")
+          StripeWrapper::Customer.should_receive(:create).and_return(customer)
           UserSignup.new(alice).sign_up(nil)
         end
         it "should not create a user" do
